@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "IoT AGU",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb2", "top": -79.8, "left": -102.8, "attrs": {} },
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp2", "top": -216.1, "left": -254.6, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 16,
+      "left": 418.4,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp2:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp2:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp2:5V", "bb2:tp.1", "red", [] ],
+    [ "bb2:tp.10", "lcd1:VCC", "red", [ "v-47.5", "h152.4", "v-163.3" ] ],
+    [ "esp2:GND", "bb2:tn.1", "black", [] ],
+    [ "bb2:tn.10", "lcd1:GND", "black", [ "h-8", "v-115.3", "h403.2" ] ],
+    [ "esp2:D21", "bb2:12t.a", "blue", [ "h47.7", "v143.6", "h137.2" ] ],
+    [ "bb2:12t.e", "lcd1:SDA", "blue", [ "v57.6", "h211.2", "v-0.2" ] ],
+    [ "esp2:D22", "bb2:18t.a", "yellow", [ "h162.9", "v143.7", "h79.6" ] ],
+    [ "bb2:18t.e", "lcd1:SCL", "yellow", [ "v-9.4", "h-146.8", "v201.6", "h454", "v-125.3" ] ]
+  ],
+  "dependencies": {}
+}
